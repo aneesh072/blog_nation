@@ -1,9 +1,19 @@
+import 'package:blog_nation/Authentication.dart';
 import 'package:flutter/material.dart';
 
 class LoginRegisterPage extends StatefulWidget {
+
+LoginRegisterPage({
+  this.auth,
+  this.onSignedIn, onSignedOut,
+});
+  final AuthImplementation auth;
+  final VoidCallback onSignedIn;
+
   State<StatefulWidget> createState() {
     return _LoginRegisterState();
   }
+
 }
 
 enum FormType
@@ -33,6 +43,34 @@ class _LoginRegisterState extends State<LoginRegisterPage> {
     }
 
   }
+
+
+void validateAndSubmit() async
+{
+  if(validateAndSave())
+  {
+    try
+    {
+      if(_formType == FormType.login)
+      {
+        String userId = await widget.auth.SignIn(_email, _password);
+        print("login userId = " + userId);
+      }
+      else{
+                  String userId = await widget.auth.SignUp(_email, _password);
+        print("Regisger userId = " + userId);
+      }
+      widget.onSignedIn();
+
+    }
+    catch(e){
+      print("Error = " + e.toString());
+
+    }
+  }
+
+}
+
 
   void moveToRegister() {
     formKey.currentState.reset(); 
@@ -137,7 +175,7 @@ if(_formType ==FormType.login){
         child: new Text("Login", style: new TextStyle(fontSize: 20.0)),
         textColor: Colors.white,
         color: Colors.red,
-        onPressed: validateAndSave,
+        onPressed: validateAndSubmit,
       ),
       new FlatButton(
         child: new Text("Not have an account? Create account",
@@ -153,7 +191,7 @@ else{
         child: new Text("Create Account", style: new TextStyle(fontSize: 20.0)),
         textColor: Colors.white,
         color: Colors.red,
-        onPressed: validateAndSave,
+        onPressed: validateAndSubmit,
       ),
       new FlatButton(
         child: new Text("Already have an account? Login",
