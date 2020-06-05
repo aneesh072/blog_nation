@@ -81,7 +81,7 @@ void validateAndSubmit() async
         print("login userId = " + userId);
       }
       else{
-                  String userId = await widget.auth.SignUp(_email, _password);
+        String userId = await widget.auth.SignUp(_email, _password);
         print("Regisger userId = " + userId);
       }
       widget.onSignedIn();
