@@ -25,6 +25,28 @@ enum FormType
 
 class _LoginRegisterState extends State<LoginRegisterPage> {
 
+    //THIS IS OUR DESIGN
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text("Blog Nation"),
+      ),
+
+      // Container for login and register text fields
+      body: new Container(
+        margin: EdgeInsets.all(15.0),
+        child: new Form(
+          key: formKey,
+          child: new Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: createInputs() + createButtons(),
+          ),
+        ),
+      ),
+    );
+  }
+
   final formKey = new GlobalKey<FormState>();
   FormType _formType = FormType.login;
   String _email = "";
@@ -43,6 +65,8 @@ class _LoginRegisterState extends State<LoginRegisterPage> {
     }
 
   }
+
+
 
 
 void validateAndSubmit() async
@@ -86,30 +110,6 @@ void validateAndSubmit() async
     setState(() {
       _formType = FormType.login;
     });
-  }
-
-
-
-  //THIS IS OUR DESIGN
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("Blog Nation"),
-      ),
-
-      // Container for login and register text fields
-      body: new Container(
-        margin: EdgeInsets.all(15.0),
-        child: new Form(
-          key: formKey,
-          child: new Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: createInputs() + createButtons(),
-          ),
-        ),
-      ),
-    );
   }
 
   List<Widget> createInputs() {
@@ -169,7 +169,7 @@ void validateAndSubmit() async
 
 //2 buttons that we have on login page
   List<Widget> createButtons() {
-if(_formType ==FormType.login){
+if(_formType == FormType.login){
       return [
       new RaisedButton(
         child: new Text("Login", style: new TextStyle(fontSize: 20.0)),

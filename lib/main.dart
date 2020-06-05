@@ -1,3 +1,4 @@
+import 'package:blog_nation/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:blog_nation/Mapping.dart';
 import 'package:blog_nation/Authentication.dart';
@@ -14,7 +15,7 @@ class BlogApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: MappingPage(auth: Auth(),),
+      home: HomePage(auth: Auth(),),
     );
   }
 } 
