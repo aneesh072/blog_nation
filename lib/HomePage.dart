@@ -1,5 +1,6 @@
 import 'package:blog_nation/Authentication.dart';
 import 'package:flutter/material.dart';
+import 'PhotoUpload.dart';
 
 class HomePage extends StatefulWidget
 {
@@ -66,7 +67,16 @@ class _HomePageState extends State<HomePage>
                  icon: new Icon(Icons.add_a_photo),
                  iconSize: 40,
                  color: Colors.white,
-                 onPressed:  null,
+                 onPressed:  ()
+                 {
+                   Navigator.push
+                   (
+                     context,
+                      MaterialPageRoute(builder: (context){
+                        return new UploadPhotoPage();
+                      })
+                      );
+                 },
                ),
             ],
           ),

@@ -81,12 +81,12 @@ void validateAndSubmit() async
       if(_formType == FormType.login)
       {
         String userId = await widget.auth.SignIn(_email, _password);
-        dialogBox.information(context, "Congratulations", "your are logged in successfully.");
+       // dialogBox.information(context, "Congratulations", "your are logged in successfully.");
         print("login userId = " + userId);
       }
       else{
         String userId = await widget.auth.SignUp(_email, _password);
-        dialogBox.information(context, "Congratulations", "your account has been created successfully.");
+       // dialogBox.information(context, "Congratulations", "your account has been created successfully.");
         print("Regisger userId = " + userId);
       }
       widget.onSignedIn();
