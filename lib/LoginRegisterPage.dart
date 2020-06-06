@@ -32,13 +32,15 @@ class _LoginRegisterState extends State<LoginRegisterPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: new AppBar(
         title: new Text("Blog Nation"),
       ),
 
       // Container for login and register text fields
-      body: new Container(
-        margin: EdgeInsets.all(15.0),
+      body: new SingleChildScrollView(
+        
+        
         child: new Form(
           key: formKey,
           child: new Column(
