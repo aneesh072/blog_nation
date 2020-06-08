@@ -182,13 +182,13 @@ if(_formType == FormType.login){
       new RaisedButton(
         child: new Text("Login", style: new TextStyle(fontSize: 20.0)),
         textColor: Colors.white,
-        color: Colors.red,
+        color: Colors.orange,
         onPressed: validateAndSubmit,
       ),
       new FlatButton(
         child: new Text("Not have an account? Create account",
             style: new TextStyle(fontSize: 14.0)),
-        textColor: Colors.red,
+        textColor: Colors.orange,
         onPressed: moveToRegister,
       ),
     ];
@@ -198,13 +198,13 @@ else{
       new RaisedButton(
         child: new Text("Create Account", style: new TextStyle(fontSize: 20.0)),
         textColor: Colors.white,
-        color: Colors.red,
+        color: Colors.orange,
         onPressed: validateAndSubmit,
       ),
       new FlatButton(
         child: new Text("Already have an account? Login",
             style: new TextStyle(fontSize: 14.0)),
-        textColor: Colors.red,
+        textColor: Colors.orange,
         onPressed: moveToLogin,
       ),
     ];

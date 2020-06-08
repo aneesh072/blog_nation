@@ -164,7 +164,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
              elevation: 10.0,
              child: Text("Add a New Post"),
              textColor: Colors.white,
-             color: Colors.red,
+             color: Colors.orange,
 
              onPressed: uploadStatusImage,
            )

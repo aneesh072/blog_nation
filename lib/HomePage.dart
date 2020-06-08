@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'PhotoUpload.dart';
 import 'Posts.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter_icons/flutter_icons.dart';
+
 
 class HomePage extends StatefulWidget
 {
@@ -89,7 +91,7 @@ class _HomePageState extends State<HomePage>
       ),
 
       bottomNavigationBar: new BottomAppBar(
-        color: Colors.red,
+        color: Colors.orange,
 
         child: new Container(
           margin: const EdgeInsets.only(left: 50.0 , right: 50.0),
@@ -98,16 +100,10 @@ class _HomePageState extends State<HomePage>
             mainAxisSize: MainAxisSize.max,
 
             children: <Widget>[
-               new IconButton(
-                 icon: new Icon(Icons.local_car_wash),
-                 iconSize: 50,
-                 color: Colors.white,
 
-                 onPressed:  _logoutUser,
-               ),
 
                           new IconButton(
-                 icon: new Icon(Icons.add_a_photo),
+                 icon: new Icon(AntDesign.camera), 
                  iconSize: 40,
                  color: Colors.white,
                  onPressed:  ()
@@ -120,6 +116,14 @@ class _HomePageState extends State<HomePage>
                       })
                       );
                  },
+               ),
+
+                              new IconButton(
+                 icon: new Icon(AntDesign.logout), 
+                 iconSize: 50,
+                 color: Colors.white,
+
+                 onPressed:  _logoutUser,
                ),
             ],
           ),

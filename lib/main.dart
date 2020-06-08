@@ -12,7 +12,7 @@ class BlogApp extends StatelessWidget {
     return new MaterialApp(
       title: "Blog App",
       theme: new ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.orange,
       ),
       home: MappingPage(auth: Auth(),),
     );
