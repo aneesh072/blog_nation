@@ -69,6 +69,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>
     }
   }
 
+  //save to databse with date time
   void saveToDatabase(url)
   {
     var dbTimeKey = new DateTime.now();

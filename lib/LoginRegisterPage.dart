@@ -2,6 +2,7 @@ import 'package:blog_nation/Authentication.dart';
 import 'package:blog_nation/DialogBox.dart';
 import 'package:flutter/material.dart';
 
+//changes state within its lifetime
 class LoginRegisterPage extends StatefulWidget {
 
 LoginRegisterPage({
@@ -16,7 +17,7 @@ LoginRegisterPage({
   }
 
 }
-
+//form type to distinguish between login and register page
 enum FormType
 {
   login,
@@ -54,6 +55,7 @@ class _LoginRegisterState extends State<LoginRegisterPage> {
 
   final formKey = new GlobalKey<FormState>();
   FormType _formType = FormType.login;
+  //creating variable to save strings for email and password
   String _email = "";
   String _password = "";
 //METHODS
@@ -73,7 +75,7 @@ class _LoginRegisterState extends State<LoginRegisterPage> {
 
 
 
-
+//if we have registered user then when pressed login, go to home page
 void validateAndSubmit() async
 {
   if(validateAndSave())
@@ -103,8 +105,9 @@ void validateAndSubmit() async
 
 }
 
-
+//this goes to the register to make a new user
   void moveToRegister() {
+    //reset value from text fields
     formKey.currentState.reset(); 
 
     setState(() {
@@ -113,6 +116,7 @@ void validateAndSubmit() async
   }
 
     void moveToLogin() {
+      //reset value from text fields
     formKey.currentState.reset(); 
 
     setState(() {
@@ -120,6 +124,7 @@ void validateAndSubmit() async
     });
   }
 
+  //this is our text field where we put our email and password
   List<Widget> createInputs() {
     return [
       SizedBox(
@@ -131,11 +136,12 @@ void validateAndSubmit() async
       ),
       new TextFormField(
         decoration: new InputDecoration(labelText: 'Email'),
-
+        //to message the user if the field is emply
         validator: (value)
         {
           return value.isEmpty ? 'Email is required.' : null;
         },
+        //if saved , assign the value to the variable we created , 'email'
         onSaved: (value)
         {
           return _email = value;
@@ -150,10 +156,12 @@ void validateAndSubmit() async
 
          validator: (value)
         {
+          //to message the user if the field is emply
           return value.isEmpty ? 'Password is required.' : null;
         },
         onSaved: (value)
         {
+           //if saved , assign the value to the variable we created , 'password'
           return _password = value;
         },
       ),

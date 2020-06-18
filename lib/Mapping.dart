@@ -16,6 +16,7 @@ class MappingPage extends StatefulWidget
   }
 }
 
+//two states one when signed in and one when not
 enum AuthStatus
 {
   notSignedIn,
@@ -56,12 +57,13 @@ class _MappingPageState extends State<MappingPage>
   Widget build(BuildContext context) {
     switch(authStatus)
     {
+      //when not signed in, set state to LoginPage
       case AuthStatus.notSignedIn:
       return new LoginRegisterPage(
         auth: widget.auth,
         onSignedIn: _signedIn, 
       );
-
+    //when signed in, set state to homepage
        case AuthStatus.signedIn:
       return new HomePage(
         auth: widget.auth,

@@ -5,7 +5,7 @@ import 'package:blog_nation/Authentication.dart';
 void main() {
   runApp(new BlogApp());
 }
-
+//give title and theme for our app
 class BlogApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,6 +14,7 @@ class BlogApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.orange,
       ),
+      //starting page of the app
       home: MappingPage(auth: Auth(),),
     );
   }
